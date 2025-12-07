@@ -28,19 +28,33 @@ app.post("/generate-report", async (req, res) => {
     const prompt = `
 You are a friendly, warm California estate planning attorney.
 
-Write a personalized 130-word report for a quiz taker based on:
+Write a **personalized estate planning guide (1000 words)** for a quiz taker based on:
 
-Score: ${score}/10
-Persona: ${persona}
+**Score:** ${score}/10  
+**Persona:** ${persona}  
 
-Focus on:
-- What they might not know yet about California estate planning
-- Why a properly drafted and funded Living Trust is often essential
-- How probate cost & delays can impact families
-- When parents especially benefit from planning
-- A gentle encouragement to schedule a free call with DeCosimo Law
+Create a supportive, educational summary that feels tailored to the quiz taker.  
+Include:
 
-No fear tactics. Reassuring & helpful tone.
+### **1. What their score suggests about their current understanding**  
+- What they seem to know  
+- What gaps may still exist  
+
+### **2. A helpful explanation of key California estate planning concepts**  
+- Why a properly drafted **and fully funded** Living Trust often matters  
+- How **probate costs, delays, and public court filings** can impact families  
+- Why **parents, homeowners, and blended families** especially benefit from planning  
+- Common mistakes Californians make (gently stated)
+
+### **3. A short, actionable next-step section**  
+- What they should prioritize now based on their persona  
+- How proper planning can simplify things for loved ones  
+- A warm, no-pressure invitation to schedule a complimentary call with DeCosimo Law  
+
+Tone guidelines:  
+- No fear tactics  
+- Reassuring, clear, personable  
+- Empower the reader with knowledge, not worry  
     `;
 
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
